@@ -1,0 +1,42 @@
+{
+  "name": "@mathieuc/tradingview",
+  "version": "2.0.91",
+  "description": "Tradingview instant stocks API, indicator alerts, trading bot, and more !",
+  "main": "main.js",
+  "scripts": {
+    "test-prices": "node ./tests/prices.js",
+    "test-analysis": "node ./tests/analysis.js",
+    "test-indicator": "node ./tests/indicator.js",
+    "test-manual-alerts": "node ./tests/alerts/manualAlert.js",
+    "test-strat-alerts": "node ./tests/alerts/strategyAlert.js",
+    "test": "npm run test-prices"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathieu2301/TradingView-API.git"
+  },
+  "keywords": [
+    "tradingwiew",
+    "market",
+    "stocks",
+    "crypto",
+    "forex",
+    "indicator",
+    "bitcoin",
+    "api"
+  ],
+  "author": "Mathieu Colmon",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "install": "^0.13.0",
+    "jszip": "^3.7.1",
+    "npm": "^8.3.0",
+    "ws": "^7.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
