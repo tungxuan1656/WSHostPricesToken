@@ -1,5 +1,12 @@
 # WSHostPricesToken
-prices.js
+```
+node prices.js
+```
+or  
+```
+pm2 start prices.js
+```
+  
 Listen: localhost:5031  
 Output Sample:  
 ``` javascript
