@@ -1,4 +1,5 @@
 # WSHostPricesToken
+prices.js
 Listen: localhost:5031  
 Output Sample:  
 ``` javascript
