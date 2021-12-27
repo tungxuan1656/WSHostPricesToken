@@ -1,3 +1,31 @@
+# WSHostPricesToken
+Listen: localhost:5031  
+Output Sample:  
+``` javascript
+{
+    "Title": "50783.6 1807.61",
+    "Favourite": {
+        "BINANCE_BTCUSDT": "50783.62",
+        "OANDA_XAUUSD": "1807.615"
+    },
+    "All": {
+        "BINANCE_BNBUSDT": "546.7",
+        "BINANCE_BTCUSDT": "50783.62",
+        "BINANCE_C98USDT": "2.816",
+        "BINANCE_ICPUSDT": "26.9",
+        "BINANCE_LINKUSDT": "23.39",
+        "BINANCE_MATICUSDT": "2.831",
+        "BINANCE_TLMUSDT": "0.2582",
+        "OANDA_XAUUSD": "1807.615",
+        "PANCAKE_GST": "0.61449471",
+        "PANCAKE_MYRA": "1.28598302",
+        "PANCAKE_RACA": "0.00347628",
+        "PANCAKE_TRY": "0.12623855",
+        "PANCAKE_WANA": "0.37734441"
+    }
+}
+```
+
 # TradingView API
 Get realtime market prices and indicator values from Tradingview !
 
@@ -130,4 +158,3 @@ ___
 ## Problems
  If you have errors in console or unwanted behavior,
  please create an issue [here](https://github.com/Mathieu2301/Tradingview-API/issues).
-# WSHostPricesToken
