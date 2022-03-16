@@ -23,7 +23,7 @@ function request(options = {}, raw = false, content = '') {
         try {
           data = JSON.parse(data);
         } catch (error) {
-          err(new Error('Can\'t parse server response'));
+          console.log(new Error('Can\'t parse server response' + data));
           return;
         }
 
@@ -149,10 +149,10 @@ module.exports = {
    * @param {'stock' | 'futures' | 'forex' | 'cfd' | 'crypto' | 'index' | 'economic'} [filter]
    * @returns {Promise<SearchResult[]>} Search results
    */
-  async search(search, filter = '') {
+  async search(search, filter = '', exchange = '') {
     const data = await request({
       host: 'symbol-search.tradingview.com',
-      path: `/symbol_search/?text=${search.replace(/ /g, '%20')}&type=${filter}`,
+      path: `/symbol_search/?text=${search.replace(/ /g, '%20')}&type=${filter}&exchange=${exchange}`,
       origin: 'https://www.tradingview.com',
     });
 
