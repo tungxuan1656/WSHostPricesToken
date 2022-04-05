@@ -1,6 +1,7 @@
 const WebSocketServer = require('ws').Server
-const marketAPI = require('./main')
+// const marketAPI = require('./main')
 const axios = require('axios').default
+const MarketService = require('./main')
 
 const wss = new WebSocketServer({ port: 5031 })
 var connections = []
@@ -51,7 +52,7 @@ setInterval(() => {
     Title: title,
     Coin: prices.Coin,
     Forex: prices.Forex,
-    Pancake: prices.Pancake
+    Pancake: prices.Pancake,
   }
   console.log(params)
   connections.forEach((con) => {
@@ -70,16 +71,20 @@ const tokensList = {
     { symbol: 'linkusdt', filter: 'crypto' },
     { symbol: 'tlmusdt', filter: 'crypto' },
     { symbol: 'cocosusdt', filter: 'crypto' },
+    { symbol: 'oneusdt', filter: 'crypto' },
+    { symbol: 'wrxusdt', filter: 'crypto' },
   ],
   Forex: [
     { symbol: 'eurusd', filter: '', exchange: 'OANDA' },
     { symbol: 'eurjpy', filter: '', exchange: 'OANDA' },
     { symbol: 'gbpusd', filter: '', exchange: 'OANDA' },
     { symbol: 'gbpjpy', filter: '', exchange: 'OANDA' },
-    // { symbol: 'audusd', filter: '' , exchange: 'OANDA' },
-    // { symbol: 'audjpy', filter: '' , exchange: 'OANDA' },
-    // { symbol: 'nzdusd', filter: '' , exchange: 'OANDA' },
-    // { symbol: 'nzdjpy', filter: '' , exchange: 'OANDA' },
+    { symbol: 'audusd', filter: '', exchange: 'OANDA' },
+    { symbol: 'audjpy', filter: '', exchange: 'OANDA' },
+    { symbol: 'nzdusd', filter: '', exchange: 'OANDA' },
+    { symbol: 'nzdjpy', filter: '', exchange: 'OANDA' },
+    { symbol: 'usdcad', filter: '', exchange: 'OANDA' },
+    { symbol: 'usdjpy', filter: '', exchange: 'OANDA' },
   ],
 }
 const tokenToCategory = {}
@@ -93,34 +98,35 @@ const tokensPancakeSwap = [
  * MARK
  * Trading View
  */
-const market = marketAPI()
-market.on('logged', () => {
-  const subToken = async (token) => {
-    const searchRes = await market.search(
-      token.symbol,
-      token.filter,
-      token.exchange ?? ''
-    )
-    if (Array.isArray(searchRes) && searchRes.length !== 0) {
-      const result = searchRes[0]
-      console.log('Found:', result)
-      market.subscribe(result.id)
+Object.keys(tokensList).forEach((k) => {
+  const market = MarketService()
+  market.on('logged', () => {
+    const subToken = async (token) => {
+      const searchRes = await market.search(
+        token.symbol,
+        token.filter,
+        token.exchange ?? ''
+      )
+      if (Array.isArray(searchRes) && searchRes.length !== 0) {
+        const result = searchRes[0]
+        console.log('Found:', result)
+        market.subscribe(result.id)
+      }
     }
-  }
 
-  Object.keys(tokensList).forEach((k) => {
     tokensList[k].forEach((token) => {
+      console.log(k, token)
       subToken(token)
       tokenToCategory[token.symbol] = k
     })
   })
-})
 
-market.on('price', (data) => {
-  const symbol = String(data.symbol).split(':')[1]
-  const category = tokenToCategory[symbol.toLowerCase()]
-  if (!prices[category]) prices[category] = {}
-  prices[category][symbol] = String(data.price).substring(0, 10)
+  market.on('price', (data) => {
+    const symbol = String(data.symbol).split(':')[1]
+    const category = tokenToCategory[symbol.toLowerCase()]
+    if (!prices[category]) prices[category] = {}
+    prices[category][symbol] = String(data.price).substring(0, 10)
+  })
 })
 
 /**
@@ -145,3 +151,4 @@ const getPriceTokens = () => {
 }
 
 setInterval(getPriceTokens, 4000)
+
