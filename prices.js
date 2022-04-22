@@ -50,10 +50,9 @@ setInterval(() => {
     .join(' ')
   let params = {
     Title: title,
-    Coin: prices.Coin,
-    Forex: prices.Forex,
-    Pancake: prices.Pancake,
+    ...prices,
   }
+  delete params.Favourite
   console.log(params)
   connections.forEach((con) => {
     con.send(JSON.stringify(params, null, 4))
@@ -74,17 +73,22 @@ const tokensList = {
     { symbol: 'oneusdt', filter: 'crypto' },
     { symbol: 'wrxusdt', filter: 'crypto' },
   ],
-  Forex: [
-    { symbol: 'eurusd', filter: '', exchange: 'OANDA' },
-    { symbol: 'eurjpy', filter: '', exchange: 'OANDA' },
-    { symbol: 'gbpusd', filter: '', exchange: 'OANDA' },
-    { symbol: 'gbpjpy', filter: '', exchange: 'OANDA' },
-    { symbol: 'audusd', filter: '', exchange: 'OANDA' },
-    { symbol: 'audjpy', filter: '', exchange: 'OANDA' },
-    { symbol: 'nzdusd', filter: '', exchange: 'OANDA' },
-    { symbol: 'nzdjpy', filter: '', exchange: 'OANDA' },
-    { symbol: 'usdcad', filter: '', exchange: 'OANDA' },
-    { symbol: 'usdjpy', filter: '', exchange: 'OANDA' },
+  // Forex: [
+  //   { symbol: 'eurusd', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'eurjpy', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'gbpusd', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'gbpjpy', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'audusd', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'audjpy', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'nzdusd', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'nzdjpy', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'usdcad', filter: '', exchange: 'OANDA' },
+  //   { symbol: 'usdjpy', filter: '', exchange: 'OANDA' },
+  // ],
+  Stock: [
+    { symbol: 'vnindex' },
+    { symbol: 'tcb', filter: 'stock' },
+    { symbol: 'ssi', filter: 'stock' },
   ],
 }
 const tokenToCategory = {}
@@ -117,7 +121,7 @@ Object.keys(tokensList).forEach((k) => {
     tokensList[k].forEach((token) => {
       console.log(k, token)
       subToken(token)
-      tokenToCategory[token.symbol] = k
+      tokenToCategory[token.symbol.toLowerCase()] = k
     })
   })
 
