@@ -73,18 +73,18 @@ const tokensList = {
     { symbol: 'oneusdt', filter: 'crypto' },
     { symbol: 'wrxusdt', filter: 'crypto' },
   ],
-  // Forex: [
+  Forex: [
   //   { symbol: 'eurusd', filter: '', exchange: 'OANDA' },
-  //   { symbol: 'eurjpy', filter: '', exchange: 'OANDA' },
+    { symbol: 'eurjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'gbpusd', filter: '', exchange: 'OANDA' },
-  //   { symbol: 'gbpjpy', filter: '', exchange: 'OANDA' },
+    { symbol: 'gbpjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'audusd', filter: '', exchange: 'OANDA' },
-  //   { symbol: 'audjpy', filter: '', exchange: 'OANDA' },
+    { symbol: 'audjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'nzdusd', filter: '', exchange: 'OANDA' },
   //   { symbol: 'nzdjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'usdcad', filter: '', exchange: 'OANDA' },
   //   { symbol: 'usdjpy', filter: '', exchange: 'OANDA' },
-  // ],
+  ],
   Stock: [
     { symbol: 'vnindex' },
     { symbol: 'tcb', filter: 'stock' },
