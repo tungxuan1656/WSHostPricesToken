@@ -61,41 +61,41 @@ setInterval(() => {
 
 const tokensList = {
   Favourite: [
-    { symbol: 'btcusdt', filter: 'crypto' },
+    // { symbol: 'btcusdt', filter: 'crypto' },
     { symbol: 'xauusd', filter: '' },
   ],
   Coin: [
-    { symbol: 'icpusdt', filter: '' },
-    { symbol: 'bnbusdt', filter: '' },
-    { symbol: 'linkusdt', filter: 'crypto' },
-    { symbol: 'tlmusdt', filter: 'crypto' },
-    { symbol: 'cocosusdt', filter: 'crypto' },
-    { symbol: 'oneusdt', filter: 'crypto' },
-    { symbol: 'wrxusdt', filter: 'crypto' },
+    // { symbol: 'icpusdt', filter: '' },
+    // { symbol: 'bnbusdt', filter: '' },
+    // { symbol: 'linkusdt', filter: 'crypto' },
+    // { symbol: 'tlmusdt', filter: 'crypto' },
+    // { symbol: 'cocosusdt', filter: 'crypto' },
+    // { symbol: 'oneusdt', filter: 'crypto' },
+    // { symbol: 'wrxusdt', filter: 'crypto' },
   ],
   Forex: [
   //   { symbol: 'eurusd', filter: '', exchange: 'OANDA' },
-    { symbol: 'eurjpy', filter: '', exchange: 'OANDA' },
+    // { symbol: 'eurjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'gbpusd', filter: '', exchange: 'OANDA' },
-    { symbol: 'gbpjpy', filter: '', exchange: 'OANDA' },
+    // { symbol: 'gbpjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'audusd', filter: '', exchange: 'OANDA' },
-    { symbol: 'audjpy', filter: '', exchange: 'OANDA' },
+    // { symbol: 'audjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'nzdusd', filter: '', exchange: 'OANDA' },
   //   { symbol: 'nzdjpy', filter: '', exchange: 'OANDA' },
   //   { symbol: 'usdcad', filter: '', exchange: 'OANDA' },
   //   { symbol: 'usdjpy', filter: '', exchange: 'OANDA' },
   ],
   Stock: [
-    { symbol: 'vnindex' },
-    { symbol: 'tcb', filter: 'stock' },
-    { symbol: 'ssi', filter: 'stock' },
+    // { symbol: 'vnindex' },
+    // { symbol: 'tcb', filter: 'stock' },
+    // { symbol: 'ssi', filter: 'stock' },
   ],
 }
 const tokenToCategory = {}
 
 const tokensPancakeSwap = [
-  { name: 'gst', contract: '0x7edc0ec89f987ecd85617b891c44fe462a325869' },
-  { name: 'try', contract: '0x75d107de2217ffe2cd574a1b3297c70c8fafd159' },
+  // { name: 'gst', contract: '0x7edc0ec89f987ecd85617b891c44fe462a325869' },
+  // { name: 'try', contract: '0x75d107de2217ffe2cd574a1b3297c70c8fafd159' },
 ]
 
 /**
